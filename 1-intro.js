@@ -1,5 +1,5 @@
 
-console.log("Hello world from Nodejs");
+console.log("Hello people from Nodejs");
 
 const sum=11;
 if (sum >10)
