@@ -1,8 +1,10 @@
 const http = require('http')
 
+console.log(http)
+
 const server = http.createServer((req, res) => {
   console.log('request event')
-  res.end('Hello World')
+  res.end(http)
 })
 
 server.listen(5000, () => {
