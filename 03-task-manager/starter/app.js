@@ -3,9 +3,22 @@ const app = express()
 
 const tasks = require('./routes/tasks')
 
+const connectDB = require('./db/connect')
 
 const port = 3000
 
+require('dotenv').config()
+
+
+const start = async () =>{
+    try {
+        await connectDB(process.env.MONGO_URI)
+        app.listen(port, console.log(`Listening to the ${port}`))
+    }
+    catch (error){
+        console.log(error)
+    }
+}
 //middleware
 app.use(express.json())
 
@@ -23,4 +36,4 @@ app.use('/api/v1/tasks', tasks)
 // app.patch('/api/v1/tasks/:id')    -  update the task
 // app.delete('/api/v1/tasks/:id')   -   delete a task
 
-app.listen(port, console.log(`Listening to the ${port}`))
+start()
