@@ -21,6 +21,7 @@ const start = async () =>{
 }
 //middleware
 app.use(express.json())
+app.use(express.static("./public"))
 
 //routes
 app.get('/hello', (req,res)=>{
